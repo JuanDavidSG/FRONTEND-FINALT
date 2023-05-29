@@ -38,10 +38,19 @@ public class SigaTutoriasController {
         }
         return null;
     }
-    @GetMapping(path = "/tutorias")
-    public List<TutoriaDTO> obtenerTutorias() {
-        return tutoriaDTOList;
+
+    @PostMapping(path = "/crear")
+    public Respuesta crearTutor(@RequestBody @Valid TutorDTO tutorDTO) {
+        tutorDTO.setId((int) (Math.random() * 1000));
+        tutorDTOList.add(tutorDTO);
+        return new Respuesta("Tutor ingresado correctamente");
     }
+
+    @GetMapping(path = "/todos")
+    public List<TutorDTO> obtenerTutores() {
+        return tutorDTOList;
+    }
+
 
     @PostMapping(path = "/agendar-tutoria/{id}")
     public Respuesta agendarTutoria(@PathVariable int id, @RequestBody @Valid List<TutoriaDTO> tutoriaDTOL) {
@@ -67,16 +76,9 @@ public class SigaTutoriasController {
         }
     }
 
-    @GetMapping(path = "/todos")
-    public List<TutorDTO> obtenerTutores() {
-        return tutorDTOList;
-    }
-
-    @PostMapping(path = "/crear")
-    public Respuesta crearTutor(@RequestBody @Valid TutorDTO tutorDTO) {
-        tutorDTO.setId((int) (Math.random() * 1000));
-        tutorDTOList.add(tutorDTO);
-        return new Respuesta("Tutor ingresado correctamente");
+    @GetMapping(path = "/tutorias")
+    public List<TutoriaDTO> obtenerTutorias() {
+        return tutoriaDTOList;
     }
 }
 
