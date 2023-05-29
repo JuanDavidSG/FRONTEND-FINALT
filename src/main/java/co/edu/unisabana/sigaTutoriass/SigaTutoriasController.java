@@ -38,7 +38,6 @@ public class SigaTutoriasController {
         }
         return null;
     }
-
     @GetMapping(path = "/tutorias")
     public List<TutoriaDTO> obtenerTutorias() {
         return tutoriaDTOList;
