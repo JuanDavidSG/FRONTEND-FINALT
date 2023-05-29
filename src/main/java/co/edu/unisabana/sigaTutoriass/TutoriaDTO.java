@@ -14,11 +14,22 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class TutoriaDTO {
     private int id;
+    @NotEmpty(message = "El nombre es requerido")
+    @NotNull(message = "Mande el campo!")
+    @Size(min = 3)
     private String nombre;
     private String start;
     private String end;
+    @NotNull(message = "La fecha es requerida")
+    @Future(message = "La fecha debe ser una fecha futura")
     private LocalDate fecha;
+    @NotEmpty(message = "La asignatura es requerido")
+    @NotNull(message = "Mande el campo!")
+    @Size(min = 3)
     private AsignaturaEnum Asignatura;
+    @NotEmpty(message = "Es requerido")
+    @NotNull(message = "Mande el campo!")
+    @Size(min = 3)
     private String title;
     private int tutorId;
 
