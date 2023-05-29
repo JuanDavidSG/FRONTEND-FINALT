@@ -15,10 +15,7 @@ import java.util.Objects;
 
 public class TutorDTO {
 
-
     private int id;
-
-
     @NotEmpty(message = "El nombre es requerido")
     @NotNull(message = "Mande el campo!")
     @Size(min = 3)
@@ -40,7 +37,6 @@ public class TutorDTO {
     private String habilidades;
     private String imagen;
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -53,6 +49,5 @@ public class TutorDTO {
     public int hashCode() {
         return Objects.hash(id, imagen);
     }
-
 
 }
